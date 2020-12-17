@@ -54,3 +54,57 @@ function scrollTop() {
   else scrollTop.classList.remove("show-scroll");
 }
 window.addEventListener("scroll", scrollTop);
+
+const mixer = mixitup(".project__container", {
+  selectors: {
+    target: ".project__content",
+  },
+  animation: {
+    duration: 400,
+  },
+});
+
+const linkProjects = document.querySelectorAll(".projects__item");
+
+function activeProject() {
+  if (linkProjects) {
+    linkProjects.forEach((l) => l.classList.remove("active-project"));
+    this.classList.add("active-project");
+  }
+}
+linkProjects.forEach((l) => l.addEventListener("click", activeProject));
+
+gsap.from(".home__img", { opacity: 0, duration: 2, delay: 0.5, x: 60 });
+gsap.from(".home__data", { opacity: 0, duration: 2, delay: 0.8, y: 25 });
+gsap.from(".home__greeting, home__name, home__profession, home__button", {
+  opacity: 0,
+  duration: 1,
+  delay: 0.8,
+  y: 25,
+  ease: "expo.out",
+  stagger: 0.2,
+});
+gsap.from(".nav__toggle, .nav__logo", {
+  opacity: 0,
+  duration: 1.5,
+  delay: 0.8,
+  y: 25,
+  ease: "expo.out",
+  stagger: 0.2,
+});
+gsap.from(".nav__item", {
+  opacity: 0,
+  duration: 1.5,
+  delay: 1.8,
+  y: 25,
+  ease: "expo.out",
+  stagger: 0.2,
+});
+gsap.from(".home__social-icon", {
+  opacity: 0,
+  duration: 2,
+  delay: 2.3,
+  y: 25,
+  ease: "expo.out",
+  stagger: 0.2,
+});
